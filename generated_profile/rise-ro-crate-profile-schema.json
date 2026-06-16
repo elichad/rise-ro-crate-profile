@@ -1,0 +1,3110 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/ro/crate/1.2/schema",
+    "title": "RO-Crate Schema for Research Infrastructure Shareable Experiments RO-Crate Profile (RISE RO-Crate Profile)",
+    "type": "object",
+    "required": [
+        "@context",
+        "@graph"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "@context": {
+            "type": "string",
+            "const": "https://w3id.org/ro/crate/1.2/context",
+            "description": "Must be RO-Crate 1.2 context"
+        },
+        "@graph": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/MetadataFileDescriptor"
+                    },
+                    {
+                        "$ref": "#/definitions/RootDataEntity"
+                    },
+                    {
+                        "$ref": "#/definitions/Person"
+                    },
+                    {
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "$ref": "#/definitions/Role"
+                    },
+                    {
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/ScholarlyArticle"
+                    },
+                    {
+                        "$ref": "#/definitions/WebPage"
+                    },
+                    {
+                        "$ref": "#/definitions/license_Apache-2.0"
+                    },
+                    {
+                        "$ref": "#/definitions/license_CC-BY-4.0"
+                    },
+                    {
+                        "$ref": "#/definitions/license_CC-BY-SA-4.0"
+                    },
+                    {
+                        "$ref": "#/definitions/license_CC0-1.0"
+                    },
+                    {
+                        "$ref": "#/definitions/license_GPL-3.0-or-later"
+                    },
+                    {
+                        "$ref": "#/definitions/license_MIT"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_conceptualization"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_data-curation"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_formal-analysis"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_funding-acquisition"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_investigation"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_methodology"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_project-administration"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_resources"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_software"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_supervision"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_validation"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_visualization"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_writing-original-draft"
+                    },
+                    {
+                        "$ref": "#/definitions/creditRole_writing-review-and-editing"
+                    },
+                    {
+                        "$ref": "#/definitions/JSONDataFormat"
+                    },
+                    {
+                        "$ref": "#/definitions/PDF15Format"
+                    },
+                    {
+                        "$ref": "#/definitions/ProfileDefinition"
+                    },
+                    {
+                        "$ref": "#/definitions/Experiment"
+                    },
+                    {
+                        "$ref": "#/definitions/File"
+                    },
+                    {
+                        "$ref": "#/definitions/Dataset"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFile"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFileLooped"
+                    },
+                    {
+                        "$ref": "#/definitions/LoopRun"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFileBootstrap"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFileSetup"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFileReset"
+                    },
+                    {
+                        "$ref": "#/definitions/OSImage"
+                    },
+                    {
+                        "$ref": "#/definitions/CommandFileCopy"
+                    },
+                    {
+                        "$ref": "#/definitions/ExperimentNode"
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "$ref": "#/definitions/MetadataFileDescriptor"
+                    }
+                },
+                {
+                    "contains": {
+                        "$ref": "#/definitions/RootDataEntity"
+                    }
+                },
+                {
+                    "contains": {
+                        "$ref": "#/definitions/ProfileDefinition"
+                    }
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "MetadataFileDescriptor": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ro-crate-metadata.json"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "conformsTo": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "const": "https://w3id.org/ro/crate/1.2"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "about": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "const": "./"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "conformsTo",
+                "about"
+            ],
+            "additionalProperties": false
+        },
+        "RootDataEntity": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "Dataset"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "datePublished": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "contributor": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "license": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "archivedAt": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "citation": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "mainEntity": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "mentions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "hasPart": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "conformsTo": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "const": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "author",
+                "dateCreated",
+                "dateModified",
+                "datePublished",
+                "name",
+                "conformsTo"
+            ],
+            "additionalProperties": false,
+            "oneOf": [
+                {
+                    "required": [
+                        "mainEntity"
+                    ]
+                },
+                {
+                    "required": [
+                        "mentions"
+                    ]
+                }
+            ]
+        },
+        "Person": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "description": "ORCID URL or local ID"
+                },
+                "@type": {
+                    "const": "Person"
+                },
+                "givenName": {
+                    "type": "string"
+                },
+                "familyName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "affiliation": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "Organization": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "description": "ROR URL or ID"
+                },
+                "@type": {
+                    "const": "Organization"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "CreativeWork": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "citation": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "ScholarlyArticle": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "ScholarlyArticle"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "citation": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "WebPage": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "WebPage"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "datePublished": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "license": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "publisher": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "Role": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "contributor": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "contributor"
+            ],
+            "additionalProperties": false
+        },
+        "license_Apache-2.0": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://www.apache.org/licenses/LICENSE-2.0"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "Apache License 2.0"
+                },
+                "alternateName": {
+                    "const": "Apache-2.0"
+                },
+                "url": {
+                    "const": "https://www.apache.org/licenses/LICENSE-2.0"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "license_CC-BY-4.0": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://creativecommons.org/licenses/by/4.0/legalcode"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "Creative Commons Attribution 4.0 International"
+                },
+                "alternateName": {
+                    "const": "CC-BY-4.0"
+                },
+                "url": {
+                    "const": "https://creativecommons.org/licenses/by/4.0/legalcode"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "license_CC-BY-SA-4.0": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "Creative Commons Attribution Share Alike 4.0 International"
+                },
+                "alternateName": {
+                    "const": "CC-BY-SA-4.0"
+                },
+                "url": {
+                    "const": "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "license_CC0-1.0": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "Creative Commons Zero v1.0 Universal"
+                },
+                "alternateName": {
+                    "const": "CC0-1.0"
+                },
+                "url": {
+                    "const": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "license_GPL-3.0-or-later": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://www.gnu.org/licenses/gpl-3.0.html"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "GNU General Public License v3.0 or later"
+                },
+                "alternateName": {
+                    "const": "GPL-3.0-or-later"
+                },
+                "url": {
+                    "const": "https://www.gnu.org/licenses/gpl-3.0.html"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "license_MIT": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://opensource.org/licenses/MIT"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "const": "MIT License"
+                },
+                "alternateName": {
+                    "const": "MIT"
+                },
+                "url": {
+                    "const": "https://opensource.org/licenses/MIT"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "alternateName",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_conceptualization": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/conceptualization/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Conceptualization"
+                },
+                "description": {
+                    "const": "Ideas; formulation or evolution of overarching research goals and aims."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/conceptualization/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_data-curation": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/data-curation/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Data curation"
+                },
+                "description": {
+                    "const": "Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later reuse."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/data-curation/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_formal-analysis": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/formal-analysis/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Formal analysis"
+                },
+                "description": {
+                    "const": "Application of statistical, mathematical, computational, or other formal techniques to analyse or synthesize study data."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/formal-analysis/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_funding-acquisition": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/funding-acquisition/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Funding acquisition"
+                },
+                "description": {
+                    "const": "Acquisition of the financial support for the project leading to this publication."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/funding-acquisition/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_investigation": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/investigation/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Investigation"
+                },
+                "description": {
+                    "const": "Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/investigation/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_methodology": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/methodology/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Methodology"
+                },
+                "description": {
+                    "const": "Development or design of methodology; creation of models."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/methodology/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_project-administration": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/project-administration/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Project administration"
+                },
+                "description": {
+                    "const": "Management and coordination responsibility for the research activity planning and execution."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/project-administration/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_resources": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/resources/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Resources"
+                },
+                "description": {
+                    "const": "Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/resources/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_software": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/software/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Software"
+                },
+                "description": {
+                    "const": "Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/software/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_supervision": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/supervision/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Supervision"
+                },
+                "description": {
+                    "const": "Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/supervision/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_validation": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/validation/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Validation"
+                },
+                "description": {
+                    "const": "Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/validation/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_visualization": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/visualization/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Visualization"
+                },
+                "description": {
+                    "const": "Preparation, creation and/or presentation of the published work, specifically visualization/data presentation."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/visualization/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_writing-original-draft": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/writing-original-draft/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Writing - original draft"
+                },
+                "description": {
+                    "const": "Preparation, creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation)."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/writing-original-draft/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "creditRole_writing-review-and-editing": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://credit.niso.org/contributor-roles/writing-review-editing/"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "const": "Writing - review & editing"
+                },
+                "description": {
+                    "const": "Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision - including pre- or post-publication stages."
+                },
+                "url": {
+                    "const": "https://credit.niso.org/contributor-roles/writing-review-editing/"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "description",
+                "url"
+            ],
+            "additionalProperties": false
+        },
+        "JSONDataFormat": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817"
+                },
+                "@type": {
+                    "const": [
+                        "WebPage",
+                        "Standard"
+                    ]
+                },
+                "name": {
+                    "const": "JSON Data Format"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "PDF15Format": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://www.nationalarchives.gov.uk/PRONOM/fmt/19"
+                },
+                "@type": {
+                    "const": [
+                        "WebPage",
+                        "Standard"
+                    ]
+                },
+                "name": {
+                    "const": "Acrobat PDF 1.5"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "ProfileDefinition": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/"
+                },
+                "@type": {
+                    "const": [
+                        "CreativeWork",
+                        "Profile"
+                    ]
+                },
+                "name": {
+                    "const": "Research Infrastructure Shareable Experiments RO-Crate Profile"
+                },
+                "alternateName": {
+                    "const": "RISE RO-Crate Profile"
+                },
+                "version": {
+                    "const": "1.0.0"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name",
+                "version"
+            ],
+            "additionalProperties": false
+        },
+        "Experiment": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "Experiment"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "contributor": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "executedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "experimentNodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "experimentWorkflow": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "supplementaryData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "includedOSImages": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "experimentController": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "executedCommands",
+                "experimentController",
+                "experimentNodes"
+            ],
+            "additionalProperties": false
+        },
+        "File": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "File"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "Dataset": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "Dataset"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "hasPart": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "dateCreated",
+                "dateModified",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFile": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFile"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedBy": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "executedOn",
+                "name",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFileLooped": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFileLooped"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "loopRuns": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "executedOn",
+                "loopRuns",
+                "name",
+                "startTime"
+            ],
+            "additionalProperties": false
+        },
+        "LoopRun": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "LoopRun"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "runOfLoopedCommand": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "name",
+                "runOfLoopedCommand",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFileBootstrap": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFileBootstrap"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedBy": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "executedOn",
+                "name",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFileSetup": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFileSetup"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedBy": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "executedOn",
+                "name",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFileReset": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFileReset"
+                },
+                "bootedImage": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "bootParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "bootstrapCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "setupCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedBy": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "bootedImage",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "duration",
+                "endTime",
+                "executedOn",
+                "name",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "OSImage": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "OSImage"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "fileSize": {
+                    "type": "string"
+                },
+                "archivedAt": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "hasPart": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "fileSize",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "CommandFileCopy": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CommandFileCopy"
+                },
+                "sourcePath": {
+                    "type": "string"
+                },
+                "destinationPath": {
+                    "type": "string"
+                },
+                "recursiveCopy": {
+                    "type": "boolean"
+                },
+                "copiedData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "endTime": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string"
+                },
+                "executedOn": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "variableSet": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "status": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "stdout": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "stderr": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "resultData": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedCommands": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "invokedBy": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "energyMeasurements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "contentSize": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "dateModified": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "exampleOfWork": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "contentSize",
+                "dateCreated",
+                "dateModified",
+                "destinationPath",
+                "duration",
+                "endTime",
+                "executedOn",
+                "name",
+                "recursiveCopy",
+                "sourcePath",
+                "startTime",
+                "status",
+                "stderr",
+                "stdout"
+            ],
+            "additionalProperties": false
+        },
+        "ExperimentNode": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "ExperimentNode"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "hardware": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "topology": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "visualizedTopology": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

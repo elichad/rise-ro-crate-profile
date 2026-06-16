@@ -1,0 +1,1250 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.2/context",
+    "@graph": [
+        {
+            "@id": "https://mit-license.org/",
+            "@type": "CreativeWork",
+            "name": "MIT License"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-5378-3905",
+            "@type": "Person",
+            "name": "Eric Hauser"
+        },
+        {
+            "@id": "https://orcid.org/0000-0001-6328-1047",
+            "@type": "Person",
+            "name": "Kilian Warmuth"
+        },
+        {
+            "@id": "rise-ro-crate-profile.md",
+            "@type": "File",
+            "name": "Research Infrastructure Shareable Experiments RO-Crate Profile (RISE RO-Crate Profile) description",
+            "encodingFormat": "text/markdown",
+            "about": {
+                "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/"
+            }
+        },
+        {
+            "@id": "http://schema.org/MediaObject",
+            "@type": "DefinedTerm",
+            "name": "MediaObject",
+            "termCode": "File"
+        },
+        {
+            "@id": "http://schema.org/Dataset",
+            "@type": "DefinedTerm",
+            "name": "Dataset"
+        },
+        {
+            "@id": "http://schema.org/name",
+            "@type": "DefinedTerm",
+            "name": "name"
+        },
+        {
+            "@id": "http://schema.org/Text",
+            "@type": "DefinedTerm",
+            "name": "Text"
+        },
+        {
+            "@id": "http://schema.org/description",
+            "@type": "DefinedTerm",
+            "name": "description"
+        },
+        {
+            "@id": "http://schema.org/dateCreated",
+            "@type": "DefinedTerm",
+            "name": "dateCreated"
+        },
+        {
+            "@id": "http://schema.org/DateTime",
+            "@type": "DefinedTerm",
+            "name": "DateTime"
+        },
+        {
+            "@id": "http://schema.org/dateModified",
+            "@type": "DefinedTerm",
+            "name": "dateModified"
+        },
+        {
+            "@id": "http://schema.org/datePublished",
+            "@type": "DefinedTerm",
+            "name": "datePublished"
+        },
+        {
+            "@id": "http://schema.org/author",
+            "@type": "DefinedTerm",
+            "name": "author"
+        },
+        {
+            "@id": "http://schema.org/Person",
+            "@type": "DefinedTerm",
+            "name": "Person"
+        },
+        {
+            "@id": "http://schema.org/Organization",
+            "@type": "DefinedTerm",
+            "name": "Organization"
+        },
+        {
+            "@id": "http://schema.org/contributor",
+            "@type": "DefinedTerm",
+            "name": "contributor"
+        },
+        {
+            "@id": "http://schema.org/Role",
+            "@type": "DefinedTerm",
+            "name": "Role"
+        },
+        {
+            "@id": "http://schema.org/keywords",
+            "@type": "DefinedTerm",
+            "name": "keywords"
+        },
+        {
+            "@id": "http://schema.org/license",
+            "@type": "DefinedTerm",
+            "name": "license"
+        },
+        {
+            "@id": "http://schema.org/URL",
+            "@type": "DefinedTerm",
+            "name": "URL"
+        },
+        {
+            "@id": "http://schema.org/archivedAt",
+            "@type": "DefinedTerm",
+            "name": "archivedAt"
+        },
+        {
+            "@id": "http://schema.org/WebPage",
+            "@type": "DefinedTerm",
+            "name": "WebPage"
+        },
+        {
+            "@id": "http://schema.org/citation",
+            "@type": "DefinedTerm",
+            "name": "citation"
+        },
+        {
+            "@id": "http://schema.org/ScholarlyArticle",
+            "@type": "DefinedTerm",
+            "name": "ScholarlyArticle"
+        },
+        {
+            "@id": "http://schema.org/CreativeWork",
+            "@type": "DefinedTerm",
+            "name": "CreativeWork"
+        },
+        {
+            "@id": "http://schema.org/mainEntity",
+            "@type": "DefinedTerm",
+            "name": "mainEntity"
+        },
+        {
+            "@id": "http://schema.org/mentions",
+            "@type": "DefinedTerm",
+            "name": "mentions"
+        },
+        {
+            "@id": "http://schema.org/encodingFormat",
+            "@type": "DefinedTerm",
+            "name": "encodingFormat"
+        },
+        {
+            "@id": "http://schema.org/SoftwareApplication",
+            "@type": "DefinedTerm",
+            "name": "SoftwareApplication"
+        },
+        {
+            "@id": "http://schema.org/contentSize",
+            "@type": "DefinedTerm",
+            "name": "contentSize"
+        },
+        {
+            "@id": "http://schema.org/exampleOfWork",
+            "@type": "DefinedTerm",
+            "name": "exampleOfWork"
+        },
+        {
+            "@id": "http://schema.org/hasPart",
+            "@type": "DefinedTerm",
+            "name": "hasPart"
+        },
+        {
+            "@id": "http://schema.org/startTime",
+            "@type": "DefinedTerm",
+            "name": "startTime"
+        },
+        {
+            "@id": "http://schema.org/endTime",
+            "@type": "DefinedTerm",
+            "name": "endTime"
+        },
+        {
+            "@id": "http://schema.org/duration",
+            "@type": "DefinedTerm",
+            "name": "duration"
+        },
+        {
+            "@id": "http://schema.org/Duration",
+            "@type": "DefinedTerm",
+            "name": "Duration"
+        },
+        {
+            "@id": "https://w3id.org/ro/terms/workflow-run#ContainerImage",
+            "@type": "DefinedTerm",
+            "name": "ContainerImage"
+        },
+        {
+            "@id": "http://schema.org/OperatingSystem",
+            "@type": "DefinedTerm",
+            "name": "OperatingSystem"
+        },
+        {
+            "@id": "http://schema.org/fileSize",
+            "@type": "DefinedTerm",
+            "name": "fileSize"
+        },
+        {
+            "@id": "http://schema.org/Boolean",
+            "@type": "DefinedTerm",
+            "name": "Boolean"
+        },
+        {
+            "@id": "http://schema.org/Thing",
+            "@type": "DefinedTerm",
+            "name": "Thing"
+        },
+        {
+            "@id": "#hasSpecification",
+            "@type": "ResourceDescriptor",
+            "hasRole": {
+                "@id": "http://www.w3.org/ns/dx/prof/role/specification"
+            },
+            "hasArtifact": {
+                "@id": "rise-ro-crate-profile.md"
+            }
+        },
+        {
+            "@id": "#hasVocabulary",
+            "@type": "ResourceDescriptor",
+            "hasRole": {
+                "@id": "http://www.w3.org/ns/dx/prof/role/vocabulary"
+            },
+            "hasArtifact": {
+                "@id": "crate-vocabulary.csv"
+            }
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/",
+            "@type": [
+                "Dataset",
+                "Profile"
+            ],
+            "license": {
+                "@id": "https://mit-license.org/"
+            },
+            "name": "Research Infrastructure Shareable Experiments RO-Crate Profile (RISE RO-Crate Profile)",
+            "description": "An RO-Crate profile for packaging metadata and artifacts of experiments conducted in research infrastructures. It defines a vocabulary to describe entities like executed commands, experiment nodes, and resulting data to enable transparent and reproducible experimentation.",
+            "author": [
+                {
+                    "@id": "https://orcid.org/0000-0002-5378-3905"
+                },
+                {
+                    "@id": "https://orcid.org/0000-0001-6328-1047"
+                }
+            ],
+            "hasPart": [
+                {
+                    "@id": "rise-ro-crate-profile.md"
+                },
+                {
+                    "@id": "http://schema.org/MediaObject"
+                },
+                {
+                    "@id": "http://schema.org/Dataset"
+                },
+                {
+                    "@id": "http://schema.org/name"
+                },
+                {
+                    "@id": "http://schema.org/Text"
+                },
+                {
+                    "@id": "http://schema.org/description"
+                },
+                {
+                    "@id": "http://schema.org/dateCreated"
+                },
+                {
+                    "@id": "http://schema.org/DateTime"
+                },
+                {
+                    "@id": "http://schema.org/dateModified"
+                },
+                {
+                    "@id": "http://schema.org/datePublished"
+                },
+                {
+                    "@id": "http://schema.org/author"
+                },
+                {
+                    "@id": "http://schema.org/Person"
+                },
+                {
+                    "@id": "http://schema.org/Organization"
+                },
+                {
+                    "@id": "http://schema.org/contributor"
+                },
+                {
+                    "@id": "http://schema.org/Role"
+                },
+                {
+                    "@id": "http://schema.org/keywords"
+                },
+                {
+                    "@id": "http://schema.org/license"
+                },
+                {
+                    "@id": "http://schema.org/URL"
+                },
+                {
+                    "@id": "http://schema.org/archivedAt"
+                },
+                {
+                    "@id": "http://schema.org/WebPage"
+                },
+                {
+                    "@id": "http://schema.org/citation"
+                },
+                {
+                    "@id": "http://schema.org/ScholarlyArticle"
+                },
+                {
+                    "@id": "http://schema.org/CreativeWork"
+                },
+                {
+                    "@id": "http://schema.org/mainEntity"
+                },
+                {
+                    "@id": "http://schema.org/mentions"
+                },
+                {
+                    "@id": "http://schema.org/encodingFormat"
+                },
+                {
+                    "@id": "http://schema.org/SoftwareApplication"
+                },
+                {
+                    "@id": "http://schema.org/contentSize"
+                },
+                {
+                    "@id": "http://schema.org/exampleOfWork"
+                },
+                {
+                    "@id": "http://schema.org/hasPart"
+                },
+                {
+                    "@id": "http://schema.org/startTime"
+                },
+                {
+                    "@id": "http://schema.org/endTime"
+                },
+                {
+                    "@id": "http://schema.org/duration"
+                },
+                {
+                    "@id": "http://schema.org/Duration"
+                },
+                {
+                    "@id": "https://w3id.org/ro/terms/workflow-run#ContainerImage"
+                },
+                {
+                    "@id": "http://schema.org/OperatingSystem"
+                },
+                {
+                    "@id": "http://schema.org/fileSize"
+                },
+                {
+                    "@id": "http://schema.org/Boolean"
+                },
+                {
+                    "@id": "http://schema.org/Thing"
+                }
+            ],
+            "hasResource": [
+                {
+                    "@id": "#hasSpecification"
+                },
+                {
+                    "@id": "#hasVocabulary"
+                }
+            ],
+            "datePublished": "2026-06-16T01:58:03.972",
+            "isProfileOf": "https://w3id.org/ro/crate/1.2"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/"
+            },
+            "license": {
+                "@id": "https://mit-license.org/"
+            },
+            "conformsTo": "https://w3id.org/ro/crate/1.2"
+        },
+        {
+            "@id": "vocabulary.csv",
+            "@type": "DefinedTermSet",
+            "name": "Namespace for RISE RO-Crate Profile",
+            "hasDefinedTerm": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileBootstrap"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileSetup"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#OSImage"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootParameters"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootedImage"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootstrapCommands"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#copiedData"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#destinationPath"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#energyMeasurements"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#executedCommands"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#executedOn"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentController"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentNodes"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentWorkflow"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#hardware"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#includedOSImages"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#invokedBy"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#invokedCommands"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#loopRuns"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#recursiveCopy"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#resultData"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#runOfLoopedCommand"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#setupCommands"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#sourcePath"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#status"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#stderr"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#stdout"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#supplementaryData"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#topology"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#variableSet"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#visualizedTopology"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFile",
+            "name": "CommandFile",
+            "description": "A file containing commands to be executed on an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileBootstrap",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFileBootstrap",
+            "name": "CommandFileBootstrap",
+            "description": "A command file for bootstrapping an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFileCopy",
+            "name": "CommandFileCopy",
+            "description": "A command file for copying data to an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFileLooped",
+            "name": "CommandFileLooped",
+            "description": "A command file that iterates over an array of parameters."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFileReset",
+            "name": "CommandFileReset",
+            "description": "A command file for resetting an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileSetup",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "CommandFileSetup",
+            "name": "CommandFileSetup",
+            "description": "A command file for setting up an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "Experiment",
+            "name": "Experiment",
+            "description": "An experiment conducted in a research infrastructure."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "ExperimentNode",
+            "name": "ExperimentNode",
+            "description": "An experiment node of a research infrastructure."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "LoopRun",
+            "name": "LoopRun",
+            "description": "A single run of a looped command file."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#OSImage",
+            "@type": [
+                "DefinedTerm",
+                "rdfs:Class"
+            ],
+            "termCode": "OSImage",
+            "name": "OSImage",
+            "description": "An operating system image booted on an experiment node."
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootParameters",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "bootParameters",
+            "name": "bootParameters",
+            "description": "List of boot parameters",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Text"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootedImage",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "bootedImage",
+            "name": "bootedImage",
+            "description": "Link to the booted image",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://w3id.org/ro/terms/workflow-run#ContainerImage"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#OSImage"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#bootstrapCommands",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "bootstrapCommands",
+            "name": "bootstrapCommands",
+            "description": "Links to invoked bootstrap commands",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileBootstrap"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#copiedData",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "copiedData",
+            "name": "copiedData",
+            "description": "Links to copied data if included in the crate",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Dataset"
+                },
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#destinationPath",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "destinationPath",
+            "name": "destinationPath",
+            "description": "Destination path of the data to be copied",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Text"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#energyMeasurements",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "energyMeasurements",
+            "name": "energyMeasurements",
+            "description": "Links to energy measurement data",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Dataset"
+                },
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#executedCommands",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "executedCommands",
+            "name": "executedCommands",
+            "description": "Executed commands on the experiment nodes",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileBootstrap"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileSetup"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#executedOn",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "executedOn",
+            "name": "executedOn",
+            "description": "Experiment node executing the command",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentController",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "experimentController",
+            "name": "experimentController",
+            "description": "Software or tools used for the experiment management and execution",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/CreativeWork"
+                },
+                {
+                    "@id": "http://schema.org/SoftwareApplication"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentNodes",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "experimentNodes",
+            "name": "experimentNodes",
+            "description": "Experiment nodes that are part of the experiment",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#experimentWorkflow",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "experimentWorkflow",
+            "name": "experimentWorkflow",
+            "description": "Link to a file that describes the experiment workflow",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#hardware",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "hardware",
+            "name": "hardware",
+            "description": "Link to a hardware file of the experiment node",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#includedOSImages",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "includedOSImages",
+            "name": "includedOSImages",
+            "description": "OS images that are part of the experiment",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#OSImage"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#invokedBy",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "invokedBy",
+            "name": "invokedBy",
+            "description": "If the command is invoked by a parent command",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#invokedCommands",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "invokedCommands",
+            "name": "invokedCommands",
+            "description": "Links to invoked subcommands",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#loopRuns",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "loopRuns",
+            "name": "loopRuns",
+            "description": "Links to the individual loop runs",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#recursiveCopy",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "recursiveCopy",
+            "name": "recursiveCopy",
+            "description": "If the data is copied recursively",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Boolean"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#resultData",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "resultData",
+            "name": "resultData",
+            "description": "Links to result data",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Dataset"
+                },
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#runOfLoopedCommand",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "runOfLoopedCommand",
+            "name": "runOfLoopedCommand",
+            "description": "Link to the looped command file",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#setupCommands",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "setupCommands",
+            "name": "setupCommands",
+            "description": "Links to invoked setup commands",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileReset"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileSetup"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#sourcePath",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "sourcePath",
+            "name": "sourcePath",
+            "description": "Source path of the data to be copied",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileCopy"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Text"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#status",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "status",
+            "name": "status",
+            "description": "Return code or link to the status file",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                },
+                {
+                    "@id": "http://schema.org/Text"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#stderr",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "stderr",
+            "name": "stderr",
+            "description": "Link to the stderr file",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#stdout",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "stdout",
+            "name": "stdout",
+            "description": "Link to the stdout file",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#LoopRun"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#supplementaryData",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "supplementaryData",
+            "name": "supplementaryData",
+            "description": "Links to additional data that is relevant to the experiment",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#Experiment"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/Dataset"
+                },
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#topology",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "topology",
+            "name": "topology",
+            "description": "Link to a network topology file of the experiment node",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#variableSet",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "variableSet",
+            "name": "variableSet",
+            "description": "Link to a variable set file",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFile"
+                },
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#CommandFileLooped"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        },
+        {
+            "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#visualizedTopology",
+            "@type": [
+                "DefinedTerm",
+                "rdf:Property"
+            ],
+            "termCode": "visualizedTopology",
+            "name": "visualizedTopology",
+            "description": "Link to a visualized network topology file of the experiment node",
+            "domainIncludes": [
+                {
+                    "@id": "https://tumi8.github.io/rise-ro-crate-profile/1.0.0/#ExperimentNode"
+                }
+            ],
+            "rangeIncludes": [
+                {
+                    "@id": "http://schema.org/MediaObject"
+                }
+            ]
+        }
+    ]
+}

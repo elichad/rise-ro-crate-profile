@@ -1,0 +1,39 @@
+term,type,label,description,domain,range
+CommandFile,Class,CommandFile,A file containing commands to be executed on an experiment node.,,
+CommandFileBootstrap,Class,CommandFileBootstrap,A command file for bootstrapping an experiment node.,,
+CommandFileCopy,Class,CommandFileCopy,A command file for copying data to an experiment node.,,
+CommandFileLooped,Class,CommandFileLooped,A command file that iterates over an array of parameters.,,
+CommandFileReset,Class,CommandFileReset,A command file for resetting an experiment node.,,
+CommandFileSetup,Class,CommandFileSetup,A command file for setting up an experiment node.,,
+Experiment,Class,Experiment,An experiment conducted in a research infrastructure.,,
+ExperimentNode,Class,ExperimentNode,An experiment node of a research infrastructure.,,
+LoopRun,Class,LoopRun,A single run of a looped command file.,,
+OSImage,Class,OSImage,An operating system image booted on an experiment node.,,
+bootParameters,Property,bootParameters,List of boot parameters,CommandFileReset,Text
+bootedImage,Property,bootedImage,Link to the booted image,CommandFileReset,ContainerImage OSImage
+bootstrapCommands,Property,bootstrapCommands,Links to invoked bootstrap commands,CommandFileReset,CommandFileBootstrap
+copiedData,Property,copiedData,Links to copied data if included in the crate,CommandFileCopy,Dataset File
+destinationPath,Property,destinationPath,Destination path of the data to be copied,CommandFileCopy,Text
+energyMeasurements,Property,energyMeasurements,Links to energy measurement data,CommandFile Experiment LoopRun,Dataset File
+executedCommands,Property,executedCommands,Executed commands on the experiment nodes,Experiment,CommandFile CommandFileBootstrap CommandFileCopy CommandFileLooped CommandFileReset CommandFileSetup
+executedOn,Property,executedOn,Experiment node executing the command,CommandFile CommandFileLooped,ExperimentNode
+experimentController,Property,experimentController,Software or tools used for the experiment management and execution,Experiment,CreativeWork SoftwareApplication
+experimentNodes,Property,experimentNodes,Experiment nodes that are part of the experiment,Experiment,ExperimentNode
+experimentWorkflow,Property,experimentWorkflow,Link to a file that describes the experiment workflow,Experiment,File
+hardware,Property,hardware,Link to a hardware file of the experiment node,ExperimentNode,File
+includedOSImages,Property,includedOSImages,OS images that are part of the experiment,Experiment,OSImage
+invokedBy,Property,invokedBy,If the command is invoked by a parent command,CommandFile,CommandFile LoopRun
+invokedCommands,Property,invokedCommands,Links to invoked subcommands,CommandFile LoopRun,CommandFile
+loopRuns,Property,loopRuns,Links to the individual loop runs,CommandFileLooped,LoopRun
+recursiveCopy,Property,recursiveCopy,If the data is copied recursively,CommandFileCopy,Boolean
+resultData,Property,resultData,Links to result data,CommandFile Experiment LoopRun,Dataset File
+runOfLoopedCommand,Property,runOfLoopedCommand,Link to the looped command file,LoopRun,CommandFileLooped
+setupCommands,Property,setupCommands,Links to invoked setup commands,CommandFileReset,CommandFileSetup
+sourcePath,Property,sourcePath,Source path of the data to be copied,CommandFileCopy,Text
+status,Property,status,Return code or link to the status file,CommandFile LoopRun,File Text
+stderr,Property,stderr,Link to the stderr file,CommandFile LoopRun,File
+stdout,Property,stdout,Link to the stdout file,CommandFile LoopRun,File
+supplementaryData,Property,supplementaryData,Links to additional data that is relevant to the experiment,Experiment,Dataset File
+topology,Property,topology,Link to a network topology file of the experiment node,ExperimentNode,File
+variableSet,Property,variableSet,Link to a variable set file,CommandFile CommandFileLooped,File
+visualizedTopology,Property,visualizedTopology,Link to a visualized network topology file of the experiment node,ExperimentNode,File

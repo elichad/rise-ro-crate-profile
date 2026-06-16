@@ -1,0 +1,25 @@
+stages:
+  - lint
+  - deploy
+
+lint:
+  stage: lint
+  image: python:3.14
+  before_script:
+    - pip install -q ruff
+  script:
+    - ruff check --line-length 120 generate_profile.py validate_metadata.py
+
+pages:
+  stage: deploy
+  image: python:3.14
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq pandoc > /dev/null
+    - pip install -q rocratepcc
+    # Fetch all tags (CI does shallow clones by default)
+    - git fetch --tags
+  script:
+    - bash utils/build_pages.sh
+  artifacts:
+    paths:
+      - public

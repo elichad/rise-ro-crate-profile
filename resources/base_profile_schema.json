@@ -1,0 +1,388 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://w3id.org/ro/crate/1.2/schema",
+    "title": "RO-Crate Schema for ",
+    "type": "object",
+    "required": [
+        "@context",
+        "@graph"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "@context": {
+            "type": "string",
+            "const": "https://w3id.org/ro/crate/1.2/context",
+            "description": "Must be RO-Crate 1.2 context"
+        },
+        "@graph": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/MetadataFileDescriptor"
+                    },
+                    {
+                        "$ref": "#/definitions/RootDataEntity"
+                    },
+                    {
+                        "$ref": "#/definitions/Person"
+                    },
+                    {
+                        "$ref": "#/definitions/Organization"
+                    },
+                    {
+                        "$ref": "#/definitions/Role"
+                    },
+                    {
+                        "$ref": "#/definitions/CreativeWork"
+                    },
+                    {
+                        "$ref": "#/definitions/ScholarlyArticle"
+                    },
+                    {
+                        "$ref": "#/definitions/WebPage"
+                    }
+                ]
+            },
+            "allOf": [
+                {
+                    "contains": {
+                        "$ref": "#/definitions/MetadataFileDescriptor"
+                    }
+                },
+                {
+                    "contains": {
+                        "$ref": "#/definitions/RootDataEntity"
+                    }
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "MetadataFileDescriptor": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ro-crate-metadata.json"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "conformsTo": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "const": "https://w3id.org/ro/crate/1.2"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "about": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "const": "./"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "conformsTo",
+                "about"
+            ],
+            "additionalProperties": false
+        },
+        "RootDataEntity": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "./"
+                },
+                "@type": {
+                    "const": "Dataset"
+                },
+                "license": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "license",
+                "datePublished",
+                "name",
+                "description"
+            ],
+            "additionalProperties": false
+        },
+        "Person": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "description": "ORCID URL or local ID"
+                },
+                "@type": {
+                    "const": "Person"
+                },
+                "givenName": {
+                    "type": "string"
+                },
+                "familyName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "affiliation": {
+                    "type": "object",
+                    "properties": {
+                        "@id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "Organization": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string",
+                    "description": "ROR URL or ID"
+                },
+                "@type": {
+                    "const": "Organization"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "CreativeWork": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "CreativeWork"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "citation": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "ScholarlyArticle": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "ScholarlyArticle"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "alternateName": {
+                    "type": "string"
+                },
+                "citation": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "WebPage": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "WebPage"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "dateCreated": {
+                    "type": "string"
+                },
+                "datePublished": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "license": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                },
+                "publisher": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "@id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "@id"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "Role": {
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "Role"
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "contributor": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "@id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "@id"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "roleName",
+                "contributor"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

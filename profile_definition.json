@@ -1,0 +1,1780 @@
+{
+    "metadata": {
+        "name": "Research Infrastructure Shareable Experiments RO-Crate Profile",
+        "name_short": "RISE RO-Crate Profile",
+        "description": "An RO-Crate profile for packaging metadata and artifacts of experiments conducted in research infrastructures. It defines a vocabulary to describe entities like executed commands, experiment nodes, and resulting data to enable transparent and reproducible experimentation.",
+        "url": "https://tumi8.github.io/rise-ro-crate-profile/",
+        "version": "1.0.0",
+        "authors": [
+            {
+                "name": "Eric Hauser",
+                "orcid": "0000-0002-5378-3905"
+            },
+            {
+                "name": "Kilian Warmuth",
+                "orcid": "0000-0001-6328-1047"
+            }
+        ],
+        "license": {
+            "name": "MIT License",
+            "url": "https://mit-license.org/"
+        }
+    },
+    "prefixes": {
+        "schemaOrg": {
+            "url": "http://schema.org/",
+            "name": "Schema.org"
+        },
+        "workflowRun": {
+            "url": "https://w3id.org/ro/terms/workflow-run#",
+            "name": "Workflow Run Crate"
+        }
+    },
+    "type_mapping": {
+        "string": [
+            "Text",
+            "URL",
+            "DateTime",
+            "Duration",
+            "Date",
+            "Time"
+        ],
+        "boolean": [
+            "Boolean"
+        ],
+        "integer": [
+            "Integer"
+        ],
+        "number": [
+            "Float"
+        ],
+        "object": [
+            "URL",
+            "CommandFile",
+            "CommandFileBootstrap",
+            "CommandFileLooped",
+            "CommandFileReset",
+            "CommandFileSetup",
+            "CommandFileCopy",
+            "ContainerImage",
+            "CreativeWork",
+            "Dataset",
+            "Experiment",
+            "ExperimentNode",
+            "File",
+            "LoopRun",
+            "OSImage",
+            "Organization",
+            "Person",
+            "Role",
+            "ScholarlyArticle",
+            "SoftwareApplication",
+            "WebPage"
+        ]
+    },
+    "static_definitions": {
+        "licenses": [
+            {
+                "spdx_id": "Apache-2.0",
+                "name": "Apache License 2.0",
+                "url": "https://www.apache.org/licenses/LICENSE-2.0",
+                "spdx_url": "https://spdx.org/licenses/Apache-2.0.html"
+            },
+            {
+                "spdx_id": "CC-BY-4.0",
+                "name": "Creative Commons Attribution 4.0 International",
+                "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                "spdx_url": "https://spdx.org/licenses/CC-BY-4.0.html"
+            },
+            {
+                "spdx_id": "CC-BY-SA-4.0",
+                "name": "Creative Commons Attribution Share Alike 4.0 International",
+                "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+                "spdx_url": "https://spdx.org/licenses/CC-BY-SA-4.0.html"
+            },
+            {
+                "spdx_id": "CC0-1.0",
+                "name": "Creative Commons Zero v1.0 Universal",
+                "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+                "spdx_url": "https://spdx.org/licenses/CC0-1.0.html"
+            },
+            {
+                "spdx_id": "GPL-3.0-or-later",
+                "name": "GNU General Public License v3.0 or later",
+                "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+                "spdx_url": "https://spdx.org/licenses/GPL-3.0-or-later.html"
+            },
+            {
+                "spdx_id": "MIT",
+                "name": "MIT License",
+                "url": "https://opensource.org/licenses/MIT",
+                "spdx_url": "https://spdx.org/licenses/MIT.html"
+            }
+        ],
+        "credit_roles": [
+            {
+                "name": "Conceptualization",
+                "url": "https://credit.niso.org/contributor-roles/conceptualization/",
+                "description": "Ideas; formulation or evolution of overarching research goals and aims."
+            },
+            {
+                "name": "Data curation",
+                "url": "https://credit.niso.org/contributor-roles/data-curation/",
+                "description": "Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later reuse."
+            },
+            {
+                "name": "Formal analysis",
+                "url": "https://credit.niso.org/contributor-roles/formal-analysis/",
+                "description": "Application of statistical, mathematical, computational, or other formal techniques to analyse or synthesize study data."
+            },
+            {
+                "name": "Funding acquisition",
+                "url": "https://credit.niso.org/contributor-roles/funding-acquisition/",
+                "description": "Acquisition of the financial support for the project leading to this publication."
+            },
+            {
+                "name": "Investigation",
+                "url": "https://credit.niso.org/contributor-roles/investigation/",
+                "description": "Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection."
+            },
+            {
+                "name": "Methodology",
+                "url": "https://credit.niso.org/contributor-roles/methodology/",
+                "description": "Development or design of methodology; creation of models."
+            },
+            {
+                "name": "Project administration",
+                "url": "https://credit.niso.org/contributor-roles/project-administration/",
+                "description": "Management and coordination responsibility for the research activity planning and execution."
+            },
+            {
+                "name": "Resources",
+                "url": "https://credit.niso.org/contributor-roles/resources/",
+                "description": "Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools."
+            },
+            {
+                "name": "Software",
+                "url": "https://credit.niso.org/contributor-roles/software/",
+                "description": "Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components."
+            },
+            {
+                "name": "Supervision",
+                "url": "https://credit.niso.org/contributor-roles/supervision/",
+                "description": "Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team."
+            },
+            {
+                "name": "Validation",
+                "url": "https://credit.niso.org/contributor-roles/validation/",
+                "description": "Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs."
+            },
+            {
+                "name": "Visualization",
+                "url": "https://credit.niso.org/contributor-roles/visualization/",
+                "description": "Preparation, creation and/or presentation of the published work, specifically visualization/data presentation."
+            },
+            {
+                "name": "Writing - original draft",
+                "url": "https://credit.niso.org/contributor-roles/writing-original-draft/",
+                "description": "Preparation, creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation)."
+            },
+            {
+                "name": "Writing - review & editing",
+                "url": "https://credit.niso.org/contributor-roles/writing-review-editing/",
+                "description": "Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision - including pre- or post-publication stages."
+            }
+        ],
+        "custom": [
+            {
+                "identifier": "JSONDataFormat",
+                "description": "JSON Data Format",
+                "base_type": "FileType",
+                "add_to_list": "AvailableFileTypes",
+                "properties": {
+                    "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/817",
+                    "@type": [
+                        "WebPage",
+                        "Standard"
+                    ],
+                    "name": "JSON Data Format"
+                }
+            },
+            {
+                "identifier": "PDF15Format",
+                "description": "Acrobat PDF 1.5",
+                "base_type": "FileType",
+                "add_to_list": "AvailableFileTypes",
+                "properties": {
+                    "@id": "https://www.nationalarchives.gov.uk/PRONOM/fmt/19",
+                    "@type": [
+                        "WebPage",
+                        "Standard"
+                    ],
+                    "name": "Acrobat PDF 1.5"
+                }
+            }
+        ]
+    },
+    "entities": [
+        {
+            "name": "RootDataEntry",
+            "description": "The root data entity that represents the crate, as defined by RO-Crate.",
+            "inherits_from": {
+                "name": "Dataset",
+                "source": "schemaOrg"
+            },
+            "is_root_entity": true,
+            "properties": [
+                {
+                    "name": "@id",
+                    "description": "Set to './' as defined by RO-Crate",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "@type",
+                    "description": "Set to the Dataset type as defined by RO-Crate",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "name",
+                    "description": "Name of the crate",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the crate",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateCreated",
+                    "description": "Creation timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateModified",
+                    "description": "Modification timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "datePublished",
+                    "description": "Publication timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "author",
+                    "description": "Authors of the crate",
+                    "requirement": "required",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Person",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Organization",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "contributor",
+                    "description": "Authors of the crate with assigned roles",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Role",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "keywords",
+                    "description": "Keywords of the crate",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "license",
+                    "description": "License of the crate",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "archivedAt",
+                    "description": "If copies of the crate are available online",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "WebPage",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "citation",
+                    "description": "If the crate is used in publications",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "ScholarlyArticle",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "CreativeWork",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "mainEntity",
+                    "description": "If the crate contains a single experiment (mutually exclusive with mentions)",
+                    "requirement": "conditional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Experiment",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "mentions",
+                    "description": "If the crate contains multiple experiments (mutually exclusive with mainEntity)",
+                    "requirement": "conditional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Experiment",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                }
+            ]
+        },
+        {
+            "name": "Experiment",
+            "description": "An experiment conducted in a research infrastructure.",
+            "inherits_from": {
+                "name": "CreativeWork",
+                "source": "schemaOrg"
+            },
+            "properties": [
+                {
+                    "name": "@id",
+                    "description": "Local identifier (e.g. '#') or URI to the experiment file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "@type",
+                    "description": "Set to the Experiment type",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "name",
+                    "description": "Name of the experiment (required if the crate contains multiple experiments)",
+                    "requirement": "conditional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the experiment",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateCreated",
+                    "description": "Creation timestamp (required if the crate contains multiple experiments)",
+                    "requirement": "conditional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateModified",
+                    "description": "Modification timestamp (required if the crate contains multiple experiments)",
+                    "requirement": "conditional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "author",
+                    "description": "Authors of the experiment (required if the crate contains multiple experiments)",
+                    "requirement": "conditional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Person",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Organization",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "contributor",
+                    "description": "Authors of the experiment with assigned roles",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Role",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "keywords",
+                    "description": "Keywords of the experiment",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "encodingFormat",
+                    "description": "If the identifier is a URI to a file",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "executedCommands",
+                    "description": "Executed commands on the experiment nodes",
+                    "requirement": "required",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "CommandFileLooped",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "CommandFileReset",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "CommandFileBootstrap",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "CommandFileSetup",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "CommandFileCopy",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "resultData",
+                    "description": "Links to result data of the executed commands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "experimentNodes",
+                    "description": "Experiment nodes that are part of the experiment",
+                    "requirement": "required",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "ExperimentNode",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "experimentWorkflow",
+                    "description": "Link to a file that describes the experiment workflow",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "supplementaryData",
+                    "description": "Links to additional data that is relevant to the experiment",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "includedOSImages",
+                    "description": "OS images that are part of the experiment",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "OSImage",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "energyMeasurements",
+                    "description": "Links to energy measurement data of the executed commands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "experimentController",
+                    "description": "Software or tools used for the experiment management and execution",
+                    "requirement": "required",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CreativeWork",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "SoftwareApplication",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "File",
+            "description": "An RO-Crate data entity for files. Defined as an alias for the Schema.org MediaObject type, listed here for reference.",
+            "inherits_from": {
+                "name": "File",
+                "source": "schemaOrg"
+            },
+            "properties": [
+                {
+                    "name": "@id",
+                    "description": "Relative or absolute URI to file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "@type",
+                    "description": "Set to the File type as defined by RO-Crate",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "name",
+                    "description": "Filename or human-readable name",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the file",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "keywords",
+                    "description": "Keywords of the file",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "contentSize",
+                    "description": "File size in bytes",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateCreated",
+                    "description": "Creation timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateModified",
+                    "description": "Modification timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "encodingFormat",
+                    "description": "IANA mediatype or link to contextual entry",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "exampleOfWork",
+                    "description": "If the file is part of a CommandFile or LoopRun",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "LoopRun",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                }
+            ]
+        },
+        {
+            "name": "Dataset",
+            "description": "An RO-Crate data entity for directories, listed here for reference.",
+            "inherits_from": {
+                "name": "Dataset",
+                "source": "schemaOrg"
+            },
+            "properties": [
+                {
+                    "name": "@id",
+                    "description": "Relative or absolute URI to directory",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "@type",
+                    "description": "Set to the Dataset type as defined by RO-Crate",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "name",
+                    "description": "Directory name or human-readable name",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the directory",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "keywords",
+                    "description": "Keywords of the directory",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "contentSize",
+                    "description": "Directory size in bytes",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateCreated",
+                    "description": "Creation timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "dateModified",
+                    "description": "Modification timestamp",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "hasPart",
+                    "description": "Links to files in the directory",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "exampleOfWork",
+                    "description": "If the directory is part of a CommandFile or LoopRun",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "LoopRun",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                }
+            ]
+        },
+        {
+            "name": "CommandFile",
+            "description": "A file containing commands to be executed on an experiment node.",
+            "inherits_from": {
+                "name": "File",
+                "internal_link": "File",
+                "source": "profile"
+            },
+            "properties": [
+                {
+                    "name": "startTime",
+                    "description": "Timestamp when the command starts",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "endTime",
+                    "description": "Timestamp when the command finishes",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "duration",
+                    "description": "Duration of the command",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Duration",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "executedOn",
+                    "description": "Experiment node executing the command",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "ExperimentNode",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "variableSet",
+                    "description": "Link to a variable set file",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "status",
+                    "description": "Return code or link to the status file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "stdout",
+                    "description": "Link to the stdout file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "stderr",
+                    "description": "Link to the stderr file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "resultData",
+                    "description": "Links to result data",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "invokedCommands",
+                    "description": "Links to invoked subcommands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "invokedBy",
+                    "description": "If the command is invoked by a parent command",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "LoopRun",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "energyMeasurements",
+                    "description": "Links to energy measurement data",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "CommandFileLooped",
+            "description": "A command file that iterates over an array of parameters.",
+            "inherits_from": {
+                "name": "File",
+                "internal_link": "File",
+                "source": "profile"
+            },
+            "properties": [
+                {
+                    "name": "startTime",
+                    "description": "Timestamp when the command starts",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "endTime",
+                    "description": "Timestamp when the command finishes",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "duration",
+                    "description": "Duration of the command",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Duration",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "executedOn",
+                    "description": "Experiment node executing the command",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "ExperimentNode",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "variableSet",
+                    "description": "Link to a variable set file",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "loopRuns",
+                    "description": "Links to the individual loop runs",
+                    "requirement": "required",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "LoopRun",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "LoopRun",
+            "description": "A single run of a looped command file.",
+            "inherits_from": {
+                "name": "File",
+                "internal_link": "File",
+                "source": "profile"
+            },
+            "properties": [
+                {
+                    "name": "startTime",
+                    "description": "Timestamp when the run starts",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "endTime",
+                    "description": "Timestamp when the run finishes",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "DateTime",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "duration",
+                    "description": "Duration of the run",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Duration",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "runOfLoopedCommand",
+                    "description": "Link to the looped command file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "CommandFileLooped",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "status",
+                    "description": "Return code or link to the status file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "stdout",
+                    "description": "Link to the stdout file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "stderr",
+                    "description": "Link to the stderr file",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "resultData",
+                    "description": "Links to result data",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "invokedCommands",
+                    "description": "Links to invoked subcommands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CommandFile",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "energyMeasurements",
+                    "description": "Links to energy measurement data",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "CommandFileBootstrap",
+            "description": "A command file for bootstrapping an experiment node.",
+            "inherits_from": {
+                "name": "CommandFile",
+                "internal_link": "CommandFile",
+                "source": "profile"
+            },
+            "properties": []
+        },
+        {
+            "name": "CommandFileSetup",
+            "description": "A command file for setting up an experiment node.",
+            "inherits_from": {
+                "name": "CommandFile",
+                "internal_link": "CommandFile",
+                "source": "profile"
+            },
+            "properties": []
+        },
+        {
+            "name": "CommandFileReset",
+            "description": "A command file for resetting an experiment node.",
+            "inherits_from": {
+                "name": "CommandFile",
+                "internal_link": "CommandFile",
+                "source": "profile"
+            },
+            "properties": [
+                {
+                    "name": "bootedImage",
+                    "description": "Link to the booted image",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "OSImage",
+                            "source": "profile"
+                        },
+                        {
+                            "name": "ContainerImage",
+                            "source": "workflowRun"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "bootParameters",
+                    "description": "List of boot parameters",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "bootstrapCommands",
+                    "description": "Links to invoked bootstrap commands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CommandFileBootstrap",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "setupCommands",
+                    "description": "Links to invoked setup commands",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "CommandFileSetup",
+                            "source": "profile"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "OSImage",
+            "description": "An operating system image booted on an experiment node.",
+            "inherits_from": {
+                "name": "OperatingSystem",
+                "source": "schemaOrg"
+            },
+            "properties": [
+                {
+                    "name": "name",
+                    "description": "Name of the image",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the image",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "fileSize",
+                    "description": "Size of the image",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "archivedAt",
+                    "description": "If the image is available online",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "URL",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "hasPart",
+                    "description": "Links to image data if included in the crate",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                }
+            ]
+        },
+        {
+            "name": "CommandFileCopy",
+            "description": "A command file for copying data to an experiment node.",
+            "inherits_from": {
+                "name": "CommandFile",
+                "internal_link": "CommandFile",
+                "source": "profile"
+            },
+            "properties": [
+                {
+                    "name": "sourcePath",
+                    "description": "Source path of the data to be copied",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "destinationPath",
+                    "description": "Destination path of the data to be copied",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "recursiveCopy",
+                    "description": "If the data is copied recursively",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Boolean",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "copiedData",
+                    "description": "Links to copied data if included in the crate",
+                    "requirement": "optional",
+                    "multiple": true,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        },
+                        {
+                            "name": "Dataset",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        },
+        {
+            "name": "ExperimentNode",
+            "description": "An experiment node of a research infrastructure.",
+            "inherits_from": {
+                "name": "Thing",
+                "source": "schemaOrg"
+            },
+            "properties": [
+                {
+                    "name": "@id",
+                    "description": "Local identifier (e.g. '#') or URI of the experiment node",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "@type",
+                    "description": "Set to the Thing type",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": null
+                },
+                {
+                    "name": "name",
+                    "description": "Hostname of the experiment node",
+                    "requirement": "required",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "description",
+                    "description": "Description of the experiment node",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "Text",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "schemaOrg"
+                },
+                {
+                    "name": "hardware",
+                    "description": "Link to a hardware file of the experiment node",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "topology",
+                    "description": "Link to a network topology file of the experiment node",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                },
+                {
+                    "name": "visualizedTopology",
+                    "description": "Link to a visualized network topology file of the experiment node",
+                    "requirement": "optional",
+                    "multiple": false,
+                    "types": [
+                        {
+                            "name": "File",
+                            "source": "schemaOrg"
+                        }
+                    ],
+                    "source": "profile"
+                }
+            ]
+        }
+    ]
+}
